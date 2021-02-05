@@ -1,0 +1,32 @@
+{{ define "Index" }}
+  {{ template "Header" }}
+    {{ template "Menu"  }}
+    <h2> Registered Data</h2>
+    <table>
+      <thead>
+      <tr>
+     
+        <td>Name</td>
+        <td>Age</td>
+        <td>City</td>
+        <td>View</td>
+        <td>Edit</td>
+        <td>Delete</td>
+      </tr>
+       </thead>
+       <tbody>
+   {{ range .}}
+      <tr>
+       
+        <td>{{ .name }}</td>
+        <td> {{ .age }} </td>
+        <td>{{ .city }} </td> 
+        <td><a href="/show?id={{ .name }}">View</a></td>
+        <td><a href="/edit?id={{ .name }}">Edit</a></td>
+        <td><a href="/delete?id={{ .name }}">Delete</a><td>
+      </tr>
+   {{ end }}
+       </tbody>
+    </table>
+  {{ template "Footer" }}
+{{ end }}
